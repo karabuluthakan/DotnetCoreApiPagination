@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Net;
 using System.Threading.Tasks;
@@ -9,7 +7,6 @@ using Api.Entities.Abstract;
 using Api.Utilities.Extensions;
 using Api.Utilities.Results;
 using Api.Utilities.Results.Abstract;
-using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 
 namespace Api.Business.Abstract

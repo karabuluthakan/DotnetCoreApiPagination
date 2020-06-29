@@ -29,7 +29,7 @@ namespace Api.Controllers
 
         [HttpGet]
         [ProducesResponseType(typeof(IPaginationResult<>), (int) HttpStatusCode.OK)]
-        [ProducesResponseType(typeof(NotFoundResult), (int) HttpStatusCode.NotFound)]
+        [ProducesResponseType(typeof(IResult), (int) HttpStatusCode.NotFound)]
         [ProducesResponseType(typeof(ErrorResult), (int) HttpStatusCode.BadRequest)]
         [ProducesResponseType(typeof(IResult), (int) HttpStatusCode.Forbidden)]
         [ProducesResponseType(typeof(IResult), (int) HttpStatusCode.Unauthorized)]
@@ -41,7 +41,7 @@ namespace Api.Controllers
         }
 
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(NotFoundResult), (int) HttpStatusCode.NotFound)]
+        [ProducesResponseType(typeof(IResult), (int) HttpStatusCode.NotFound)]
         [ProducesResponseType(typeof(ErrorResult), (int) HttpStatusCode.BadRequest)]
         [ProducesResponseType(typeof(IResult), (int) HttpStatusCode.Forbidden)]
         [ProducesResponseType(typeof(IResult), (int) HttpStatusCode.Unauthorized)]
