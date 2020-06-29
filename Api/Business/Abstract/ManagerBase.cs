@@ -36,13 +36,8 @@ namespace Api.Business.Abstract
             }
 
             var list = await data.ToListAsync();
-            if (paginationQuery != null)
-            {
-                var count = await repository.CountAsync();
-                return PaginationExtensions.CreatePaginationResult(list, HttpStatusCode.OK, paginationQuery, count, uriService);
-            }
-
-            return new DataResult<List<T>>(list, HttpStatusCode.OK, list.Count);
+            var count = await repository.CountAsync();
+            return PaginationExtensions.CreatePaginationResult(list, HttpStatusCode.OK, paginationQuery, count, uriService);
         }
 
         public virtual async Task<IResult> GetByIdAsync(TKey id)

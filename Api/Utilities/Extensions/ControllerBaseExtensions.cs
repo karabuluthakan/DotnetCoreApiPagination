@@ -15,10 +15,18 @@ namespace Api.Utilities.Extensions
                 case (int) HttpStatusCode.Created:
                 {
                     var uri = (controllerBase?.HttpContext?.Request).GetDisplayUrl();
+                    if (string.IsNullOrEmpty(result.Message))
+                    {
+                        result.Message = "Created";
+                    }
                     return new CreatedResult(uri, result); 
                 }
                 case (int) HttpStatusCode.NotFound:
                 {
+                    if (string.IsNullOrEmpty(result.Message))
+                    {
+                        result.Message = "NotFound";
+                    }
                     return new NotFoundObjectResult(result);
                 }
                 case (int) HttpStatusCode.NoContent:
@@ -27,6 +35,10 @@ namespace Api.Utilities.Extensions
                 }
                 case (int) HttpStatusCode.Forbidden:
                 {
+                    if (string.IsNullOrEmpty(result.Message))
+                    {
+                        result.Message = "Forbidden";
+                    }
                     return new ForbidResult();
                 }
                 case (int) HttpStatusCode.Unauthorized:
@@ -35,10 +47,18 @@ namespace Api.Utilities.Extensions
                 }
                 case (int) HttpStatusCode.OK:
                 {
+                    if (string.IsNullOrEmpty(result.Message))
+                    {
+                        result.Message = "OK";
+                    }
                     return new OkObjectResult(result);
                 }
                 default:
                 {
+                    if (string.IsNullOrEmpty(result.Message))
+                    {
+                        result.Message = "Something went wrong";
+                    }
                     return new BadRequestObjectResult(result);
                 }
             }

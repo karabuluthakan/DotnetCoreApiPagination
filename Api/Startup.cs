@@ -39,7 +39,7 @@ namespace Api
             services.AddEntityFrameworkSqlite().AddDbContext<GeolocationDbContext>(options =>
             {
                 options.UseSqlite(Configuration.GetConnectionString("DefaultDatabaseConnection"));
-            }).BuildServiceProvider();
+            });
             services.AddScoped<ICityRepository, EfCityRepository>();
             services.AddScoped<ICityService, CityManager>();
             services.AddScoped<IContinentalRepository, EfContinentalRepository>();

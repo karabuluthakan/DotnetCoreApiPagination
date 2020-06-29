@@ -7,7 +7,7 @@ using Api.Entities.Abstract;
 using Api.Utilities.Extensions;
 using Api.Utilities.Results;
 using Api.Utilities.Results.Abstract;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc; 
 
 namespace Api.Controllers
 {
@@ -29,8 +29,8 @@ namespace Api.Controllers
 
         [HttpGet]
         [ProducesResponseType(typeof(IPaginationResult<>), (int) HttpStatusCode.OK)]
-        [ProducesResponseType(typeof(IResult), (int) HttpStatusCode.NotFound)]
-        [ProducesResponseType(typeof(IResult), (int) HttpStatusCode.BadRequest)]
+        [ProducesResponseType(typeof(NotFoundResult), (int) HttpStatusCode.NotFound)]
+        [ProducesResponseType(typeof(ErrorResult), (int) HttpStatusCode.BadRequest)]
         [ProducesResponseType(typeof(IResult), (int) HttpStatusCode.Forbidden)]
         [ProducesResponseType(typeof(IResult), (int) HttpStatusCode.Unauthorized)]
         public virtual async Task<IActionResult> GetAll([FromQuery] PaginationQuery paginationQuery)
@@ -41,9 +41,8 @@ namespace Api.Controllers
         }
 
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(IResult), (int) HttpStatusCode.OK)]
-        [ProducesResponseType(typeof(IResult), (int) HttpStatusCode.NotFound)]
-        [ProducesResponseType(typeof(IResult), (int) HttpStatusCode.BadRequest)]
+        [ProducesResponseType(typeof(NotFoundResult), (int) HttpStatusCode.NotFound)]
+        [ProducesResponseType(typeof(ErrorResult), (int) HttpStatusCode.BadRequest)]
         [ProducesResponseType(typeof(IResult), (int) HttpStatusCode.Forbidden)]
         [ProducesResponseType(typeof(IResult), (int) HttpStatusCode.Unauthorized)]
         public virtual async Task<IActionResult> GetById(TKey id)

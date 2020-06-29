@@ -16,6 +16,6 @@ namespace Api.Utilities.Results
         }
 
         public int StatusCode { get; }
-        public string Message { get; }
+        public string Message { get; set; }
     }
 }
