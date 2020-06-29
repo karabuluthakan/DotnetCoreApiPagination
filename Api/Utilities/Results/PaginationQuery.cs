@@ -1,6 +1,8 @@
-﻿namespace Api.Utilities.Results
+﻿using Api.Utilities.Results.Abstract;
+
+namespace Api.Utilities.Results
 {
-    public class PaginationQuery
+    public class PaginationQuery : IPaginationQuery
     {
         public int PageNumber { get; set; }
         public int PageSize { get; set; }
